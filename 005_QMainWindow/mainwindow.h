@@ -1,7 +1,8 @@
-#ifndef MAINWINDOW_H
+﻿#ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QPushButton>
 
 class MainWindow : public QMainWindow
 {
@@ -10,6 +11,13 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = 0);
     ~MainWindow();
+
+private slots:
+    void openTriggerSlot();
+
+private:
+    QPushButton * openButton;
+
 };
 
 #endif // MAINWINDOW_H

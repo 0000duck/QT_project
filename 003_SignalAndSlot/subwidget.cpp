@@ -1,19 +1,19 @@
-#include "subwidget.h"
+﻿#include "subwidget.h"
 
 SubWidget::SubWidget(QWidget *parent) : QWidget(parent)
 {
-    this->setWindowTitle("son");
-    b.setParent(this);
-    b.setText("切换到主窗口");
+     this->setWindowTitle("xiaodi");
+     subButton = new QPushButton;
+     subButton->setParent(this);
+     subButton->setText("to main");
+     subButton->move(100,100);
+     subButton->resize(50,30);
+     QObject::connect(subButton,SIGNAL(clicked()),this,SLOT(changeSlot()));
+     this->resize(300,300);
 
-    connect(&b, &QPushButton::clicked, this, &SubWidget::sendSlot);
-
-    resize(400, 300);
 }
 
-void SubWidget::sendSlot()
+void SubWidget::changeSlot()
 {
     emit mySignal();
-    emit mySignal(250, QString("i am son"));
 }
-

@@ -1,4 +1,4 @@
-#ifndef MAINWIDGET_H
+﻿#ifndef MAINWIDGET_H
 #define MAINWIDGET_H
 
 #include <QWidget>
@@ -13,18 +13,13 @@ public:
     MainWidget(QWidget *parent = 0);
     ~MainWidget();
 
-public slots:
-    void mySlot();
-    void changeWin();
-    void dealSub();
-    void dealSlot(int, QString);
-
-private:
-    QPushButton b1;
-    QPushButton *b2;
-    QPushButton b3;
-
+public:
     SubWidget subWin;
+    QPushButton * mainButton;
+
+private slots:
+    void tomainSlot();
+    void tosubSlot();
 };
 
 #endif // MAINWIDGET_H

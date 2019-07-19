@@ -1,4 +1,4 @@
-#include "mainwindow.h"
+﻿#include "mainwindow.h"
 #include <QMenu>
 #include <QMenuBar>
 #include <QAction>
@@ -10,11 +10,11 @@
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
 {
-
+    this->resize(500,500);
     QMenuBar *mBar = menuBar();
     setMenuBar(mBar);
-    QMenu *menu = mBar->addMenu("对话框");
-    QAction *p1 = menu->addAction("模态对话框");
+    QMenu *menu = mBar->addMenu("dialog");
+    QAction *p1 = menu->addAction("motai dialog");
     connect(p1, &QAction::triggered,
             [=]()
             {
@@ -25,17 +25,10 @@ MainWindow::MainWindow(QWidget *parent)
 
             );
 
-    QAction *p2 = menu->addAction("非模态对话框");
+    QAction *p2 = menu->addAction("no motai dialog");
     connect(p2, &QAction::triggered,
             [=]()
             {
-
-//                dlg.show();
-//                qDebug() << "111111";
-
-
-//                QDialog *p = new QDialog(this);
-//                p->show();
 
                  QDialog *p = new QDialog;
                  p->setAttribute(Qt::WA_DeleteOnClose);
@@ -44,16 +37,16 @@ MainWindow::MainWindow(QWidget *parent)
 
             );
 
-    QAction *p3 = menu->addAction("关于对话框");
+    QAction *p3 = menu->addAction("about Dialog");
     connect(p3, &QAction::triggered,
             [=]()
             {
-               QMessageBox::about(this, "about", "关于qt");
+               QMessageBox::about(this, "about", "about qt");
             }
 
             );
 
-    QAction *p4 = menu->addAction("问题对话框");
+    QAction *p4 = menu->addAction("question");
     connect(p4, &QAction::triggered,
             [=]()
             {
@@ -79,13 +72,13 @@ MainWindow::MainWindow(QWidget *parent)
             );
 
 
-    QAction *p5 = menu->addAction("文件对话框");
+    QAction *p5 = menu->addAction("file Dialog");
     connect(p5, &QAction::triggered,
             [=]()
             {
                QString path = QFileDialog::getOpenFileName(
                            this,
-                           "open",
+                           "OPEN",
                            "../",
              "souce(*.cpp *.h);;Text(*.txt);;all(*.*)"
                            );
